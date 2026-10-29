@@ -34,7 +34,15 @@ Why: these projects are simple enough that a mid-tier model handles them fine, a
 
 If you're an AI assistant reading this and you can see which model you're currently running as, mention it to the user once at the start, so they know whether they should switch.
 
-### Step 3 — Send them into the right folder
+### Step 3 — Always build a quick demo first
+
+**Before building the real thing, always build a fast, throwaway demo first** so the user can see and react to something real within minutes — even if their final answer in Step 1 was a mobile app or computer program.
+
+- **If your own platform has a built-in instant-preview/hosting feature, use that first** — e.g. ChatGPT's **Sites** feature, or Claude's **Artifacts** — since it needs zero setup and shows the user something immediately. If whatever AI assistant/chatbot the user is using has some equivalent "show this running right now" feature, use it.
+- **Either way, also set the user up with a GitHub Pages demo of this repo** (see [`docs/github-pages.md`](docs/github-pages.md)) as their first real milestone — a simple, free, shareable link they can show other people. Do this even for a mobile/desktop project: a rough clickable web version of the idea is the fastest way to validate it before investing in Flutter/Electron.
+- Only once the user has seen a working demo and confirmed it's heading in the right direction should you move on to building the real thing in Step 4.
+
+### Step 4 — Send them into the right folder
 
 Once you know the answer, **open and follow the README inside the matching folder**:
 
@@ -46,14 +54,14 @@ Once you know the answer, **open and follow the README inside the matching folde
 
 That folder's README contains the exact architecture, tools, and step-by-step setup instructions you should follow. Don't improvise a different stack — this template exists so every project built from it looks and works the same way, which makes it much easier for the human (and future AI assistants) to maintain.
 
-### Step 4 — Set up "computer use" if you can
+### Step 5 — Set up "computer use" if you can
 
 Before diving in, check whether you (the AI assistant) have **computer use / desktop control** available in this environment (the ability to click, type, and operate applications on the user's computer directly, not just edit files).
 
 - **If you do have it:** turn it on and use it. It lets you install software, run installers, click through setup wizards, and test the running app yourself, instead of reading instructions aloud to the user and hoping they type things correctly. This is much easier for a non-technical user than following a CLI tutorial.
 - **If you don't have it:** tell the user plainly that you'll need to give them copy-paste commands and click-by-click instructions instead, and that this will be slower. Suggest they could also try an assistant with computer-use access (e.g. Claude with the desktop app / computer use) if they get stuck.
 
-### Step 5 — Shared services
+### Step 6 — Shared services
 
 Regardless of which path they take, this template standardizes on these services so the user builds "muscle memory" across projects. See [`docs/`](docs) for setup guides:
 
@@ -81,7 +89,8 @@ Every app built from this template follows the same basic shape, so once you've 
 2. Give the new repo to your AI assistant.
 3. Tell the assistant what you want to build.
 4. Answer its questions (website vs mobile vs desktop, what the app does, etc).
-5. Let it build, test, and deploy following the guides in this repo.
+5. Let it show you a quick demo first (an instant preview in the chat, or a GitHub Pages link) before building the real thing.
+6. Let it build, test, and deploy the real version following the guides in this repo.
 
 ## 📁 What's in this repo
 
