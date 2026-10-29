@@ -13,6 +13,15 @@ You don't need to know how to code. You need to:
 
 If you are an AI assistant that has just been pointed at this repository, **do the following before writing any code:**
 
+### Step 0 — Never build inside this repo. Always create a brand-new repo for the actual project.
+
+This repository (`ai-app-starter-template`) is a **template only** — a set of instructions for you to follow, not a place to build the user's actual app.
+
+- **Do not** commit code, push, or open pull requests against this repository.
+- Before writing any project code, **create a brand-new, separate GitHub repository** for the user's actual project (e.g. via "Use this template" if the human hasn't already clicked it, or by creating a fresh empty repo yourself if you have GitHub access). Give it a name based on what the user is building, not a copy of this repo's name.
+- Build, commit, and deploy entirely inside that new repository. You can still *read* this template's folders/docs for instructions, but all actual project files, git history, and deployments belong in the new repo.
+- If the human already used "Use this template" to create their own copy of this repo before talking to you, that copy **is** the new repo — build there, not back in this original template.
+
 ### Step 1 — Ask the human what they want to build
 
 Ask the user this question directly, in plain language, and wait for their answer:
