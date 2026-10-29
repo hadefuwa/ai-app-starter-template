@@ -26,6 +26,7 @@ If the app needs to **store data**, have **user accounts/login**, or deal with *
 - Use **[Supabase](../docs/supabase.md)** (free tier) as the database + auth backend.
 - Keep the frontend the same as A or B above.
 - Host the frontend on **Vercel** (recommended once you have a backend, since it handles environment variables and API routes cleanly) — see [`docs/vercel.md`](../docs/vercel.md).
+- If the site is genuinely large (lots of records, logged-in users, maybe an admin area or paid tiers), see [`docs/example-large-content-site.md`](../docs/example-large-content-site.md) for a worked example of how to structure that with the same Vercel + Supabase stack.
 
 ### D) Site that needs a real domain name and/or an always-on server process
 If the user wants to **buy and use a custom domain**, or needs a backend server that's always running (not just serverless functions) — e.g. a Node/Python backend, a scheduled job, a websocket server:
