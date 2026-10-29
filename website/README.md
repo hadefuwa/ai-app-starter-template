@@ -41,6 +41,7 @@ If the user wants to **buy and use a custom domain**, or needs a backend server 
 - Plain HTML/CSS/JS, or React via Vite if the app has real interactivity/state.
 - PWA manifest + service worker if "app-like" or offline use was mentioned.
 - GitHub Pages for hosting, unless a database is needed → then Vercel + Supabase.
+- If an AI chatbot/agent feature is wanted, see [`docs/ai-llm-integration.md`](../docs/ai-llm-integration.md) — default to **OpenRouter's free tier** first.
 
 ## 3. Suggested folder layout for the actual app code
 

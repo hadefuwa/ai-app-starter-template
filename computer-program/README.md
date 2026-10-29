@@ -31,13 +31,17 @@ computer-program/
 
 If the app needs to store/search data and isn't purely local-file-based, use **[Supabase](../docs/supabase.md)** (free tier) via its REST API or JS client from inside the Electron app.
 
-## 4. Distributing the finished app
+## 4. Adding an AI chatbot/agent feature
+
+If the app should include an AI feature (chat, summarizing, Q&A, etc.), see [`docs/ai-llm-integration.md`](../docs/ai-llm-integration.md). For a desktop app specifically, the default should be **LM Studio** running a small local Gemma model, so the app works fully offline with no API costs — only use OpenRouter if the user is fine requiring an internet connection and (small) API costs.
+
+## 5. Distributing the finished app
 
 - For testing: just share the built installer file directly with users (email, Google Drive, etc.) — no store needed.
 - Code signing (so Windows/Mac don't show scary "unknown publisher" warnings) costs money and is optional — only set this up if the user explicitly asks, since it requires buying a certificate.
 - Auto-update: `electron-updater` works well if you're hosting releases somewhere like GitHub Releases.
 
-## 5. Checklist before telling the user it's "done"
+## 6. Checklist before telling the user it's "done"
 
 - [ ] App runs via `npm start` and the user has seen it working
 - [ ] A packaged installer has been built and tested on at least one target OS

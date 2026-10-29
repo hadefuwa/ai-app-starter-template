@@ -79,6 +79,7 @@ Regardless of which path they take, this template standardizes on these services
 - **A real domain name + always-on hosting/backend:** [Railway](docs/railway.md)
 - **Mobile development environment:** [Flutter + Android Studio setup](docs/flutter-android-studio-setup.md)
 - **Letting your AI assistant control your computer:** [Computer use setup](docs/computer-use-setup.md)
+- **Embedding an AI chatbot/agent into the app itself:** [AI/LLM integration — OpenRouter or LM Studio](docs/ai-llm-integration.md)
 
 ---
 
@@ -115,5 +116,6 @@ Every app built from this template follows the same basic shape, so once you've 
     ├── supabase.md
     ├── railway.md
     ├── flutter-android-studio-setup.md
-    └── computer-use-setup.md
+    ├── computer-use-setup.md
+    └── ai-llm-integration.md
 ```
