@@ -26,7 +26,15 @@ Ask the user this question directly, in plain language, and wait for their answe
 
 If the user picks B (mobile) or C (computer program), confirm with them once that a website genuinely won't work for their use case before proceeding — but respect their choice if they insist.
 
-### Step 2 — Send them into the right folder
+### Step 2 — Pick a mid-tier model, not the most expensive one
+
+If your platform lets the user choose which underlying model you run as (e.g. a model picker in Claude, ChatGPT, Cursor, etc.), **use a mid-tier model** — something like **Claude Sonnet** or **GPT-5.1 / GPT-4.1** (or whatever your platform's equivalent "balanced" model is called) — **not** the top-of-the-line "max"/"opus"/"pro" tier.
+
+Why: these projects are simple enough that a mid-tier model handles them fine, and the most capable models burn through usage limits/credits much faster. Save the top-tier model for a genuinely hard problem you get stuck on — don't default to it.
+
+If you're an AI assistant reading this and you can see which model you're currently running as, mention it to the user once at the start, so they know whether they should switch.
+
+### Step 3 — Send them into the right folder
 
 Once you know the answer, **open and follow the README inside the matching folder**:
 
@@ -38,14 +46,14 @@ Once you know the answer, **open and follow the README inside the matching folde
 
 That folder's README contains the exact architecture, tools, and step-by-step setup instructions you should follow. Don't improvise a different stack — this template exists so every project built from it looks and works the same way, which makes it much easier for the human (and future AI assistants) to maintain.
 
-### Step 3 — Set up "computer use" if you can
+### Step 4 — Set up "computer use" if you can
 
 Before diving in, check whether you (the AI assistant) have **computer use / desktop control** available in this environment (the ability to click, type, and operate applications on the user's computer directly, not just edit files).
 
 - **If you do have it:** turn it on and use it. It lets you install software, run installers, click through setup wizards, and test the running app yourself, instead of reading instructions aloud to the user and hoping they type things correctly. This is much easier for a non-technical user than following a CLI tutorial.
 - **If you don't have it:** tell the user plainly that you'll need to give them copy-paste commands and click-by-click instructions instead, and that this will be slower. Suggest they could also try an assistant with computer-use access (e.g. Claude with the desktop app / computer use) if they get stuck.
 
-### Step 4 — Shared services
+### Step 5 — Shared services
 
 Regardless of which path they take, this template standardizes on these services so the user builds "muscle memory" across projects. See [`docs/`](docs) for setup guides:
 
