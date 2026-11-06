@@ -1,0 +1,17 @@
+import { readFileSync, writeFileSync, mkdirSync } from 'node:fs';
+import { dirname, resolve } from 'node:path';
+import { fileURLToPath } from 'node:url';
+const root = fileURLToPath(new URL('..', import.meta.url));
+const shell = readFileSync(resolve(root, 'src/game-shell.html'), 'utf8');
+const fragment = readFileSync(resolve(root, 'src/game-api.fragment.js'), 'utf8');
+const fogFragment = readFileSync(resolve(root, 'src/fog-api.fragment.js'), 'utf8');
+const marker = '<!-- WILDREACH_GAME_API -->';
+const fogMarker = '<!-- WILDREACH_FOG_API -->';
+if (!shell.includes(fogMarker)) throw new Error('Fog API marker is missing from src/game-shell.html.');
+if (!shell.includes(marker)) throw new Error('Game API marker is missing from src/game-shell.html.');
+const html = shell.replace(fogMarker, fogFragment).replace(marker, fragment);
+const output = resolve(root, 'public/index.html');
+mkdirSync(dirname(output), { recursive: true });
+writeFileSync(output, html);
+writeFileSync(resolve(root, 'public/persistence.js'), readFileSync(resolve(root, 'src/persistence.js')));
+console.log('Built Wildreach client.');
