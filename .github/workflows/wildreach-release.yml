@@ -1,0 +1,42 @@
+name: Wildreach release
+
+on:
+  push:
+    tags:
+      - 'wildreach-v*'
+
+permissions:
+  contents: write
+
+jobs:
+  package-and-release:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Build and package installer
+        env:
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: pwsh
+        run: |
+          npm run build --prefix wildreach
+          $version = $env:RELEASE_TAG.Replace('wildreach-v', '')
+          $stage = Join-Path $env:RUNNER_TEMP 'Wildreach'
+          New-Item -ItemType Directory -Path $stage -Force | Out-Null
+          $game = Join-Path $stage 'wildreach'
+          New-Item -ItemType Directory -Path $game -Force | Out-Null
+          Copy-Item 'wildreach/*' -Destination $game -Recurse -Force
+          Remove-Item (Join-Path $stage 'wildreach/data') -Recurse -Force -ErrorAction SilentlyContinue
+          Copy-Item 'wildreach/Install Wildreach.ps1' $stage
+          Copy-Item 'wildreach/README.md' $stage
+          Compress-Archive -Path (Join-Path $stage '*') -DestinationPath "Wildreach-Setup-v$version.zip" -Force
+      - name: Publish GitHub release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RELEASE_TAG: ${{ github.ref_name }}
+        shell: pwsh
+        run: |
+          $version = $env:RELEASE_TAG.Replace('wildreach-v', '')
+          gh release create $env:RELEASE_TAG "Wildreach-Setup-v$version.zip" --title "Wildreach $env:RELEASE_TAG" --generate-notes
